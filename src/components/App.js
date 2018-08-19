@@ -1,45 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+import * as actions from '../store/actions'
 
 import Button from './Button'
 
-const initialState = {
-  counter: 0
-}
-
 class App extends Component {
-  state = initialState
-
-  addHandler = () => {
-    const currentState = this.state.counter;
-
-    this.setState({ counter: currentState + 1})
-  }
-
-  removeHandler = () => {
-    const currentState = this.state.counter;
-
-    if (currentState !== 0) {
-      this.setState({ counter: currentState - 1 })
-    }
-  }
-
-  resetHandler = () => {
-
-    this.setState(initialState)
-  }
-
   render() {
     return (
       <AppWrapper>
         <HeaderWrapper>
-          <Counter>{this.state.counter}</Counter>
+          <Counter>{this.props.counter.value}</Counter>
         </HeaderWrapper>
         <BodyWrapper>
           <Controls>
-            <Button title="Add" clickHandler={this.addHandler} />
-            <Button title="Reset" clickHandler={this.resetHandler} />
-            <Button title="Remove" clickHandler={this.removeHandler} />
+            <Button title="Add" clickHandler={this.props.onAdd} />
+            <Button title="Reset" clickHandler={this.props.onReset} />
+            <Button title="Remove" clickHandler={this.props.onRemove} />
           </Controls>
         </BodyWrapper>
       </AppWrapper>
@@ -71,4 +48,18 @@ const Counter = styled.h2`
   font-size: 64px;
 `
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    counter: state.counter
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAdd: () => dispatch(actions.addHandler()),
+        onRemove: () => dispatch(actions.removeHandler()),
+        onReset: () => dispatch(actions.resetHandler())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
