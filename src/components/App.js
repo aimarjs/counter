@@ -3,23 +3,30 @@ import styled from 'styled-components';
 
 import Button from './Button'
 
-class App extends Component {
-  state = {
-    counter: 0
-  }
+const initialState = {
+  counter: 0
+}
 
-  addNumber = () => {
+class App extends Component {
+  state = initialState
+
+  addHandler = () => {
     const currentState = this.state.counter;
 
     this.setState({ counter: currentState + 1})
   }
 
-  removeNumber = () => {
+  removeHandler = () => {
     const currentState = this.state.counter;
 
     if (currentState !== 0) {
       this.setState({ counter: currentState - 1 })
     }
+  }
+
+  resetHandler = () => {
+
+    this.setState(initialState)
   }
 
   render() {
@@ -30,8 +37,9 @@ class App extends Component {
         </HeaderWrapper>
         <BodyWrapper>
           <Controls>
-            <Button title="Add" clickHandler={this.addNumber} />
-            <Button title="Remove" clickHandler={this.removeNumber} />
+            <Button title="Add" clickHandler={this.addHandler} />
+            <Button title="Reset" clickHandler={this.resetHandler} />
+            <Button title="Remove" clickHandler={this.removeHandler} />
           </Controls>
         </BodyWrapper>
       </AppWrapper>
@@ -56,7 +64,7 @@ const BodyWrapper = styled.div`
 
 const Controls = styled.div`
   margin: 0 auto;
-  max-width: 200px;
+  max-width: 300px;
 `
 
 const Counter = styled.h2`
