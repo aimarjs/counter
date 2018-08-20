@@ -1,14 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
+import CounterValue from './CounterValue';
 
 const Counter = props => (
-  <Controls>
-    <Button title="Add" clickHandler={props.onAdd} />
-    <Button title="Reset" clickHandler={props.onReset} disable={props.value !== 0 ? false : true} />
-    <Button title="Remove" clickHandler={props.onRemove} disable={props.value !== 0 ? false : true}/>
-  </Controls>
+  <Wrapper>
+    <CounterValue value={props.value} />
+    <Controls>
+      <Button title="Add" clickHandler={props.onAdd} />
+      <Button title="Reset" clickHandler={props.onReset} disable={props.value !== 0 ? false : true} />
+      <Button title="Remove" clickHandler={props.onRemove} disable={props.value !== 0 ? false : true}/>
+    </Controls>
+  </Wrapper>
 )
+
+const Wrapper = styled.div`
+  width: 100%
+`
 
 const Controls = styled.div`
   margin: 0 auto;

@@ -9,9 +9,6 @@ class App extends Component {
   render() {
     return (
       <AppWrapper>
-        <HeaderWrapper>
-          <CounterValue>{this.props.counter.value}</CounterValue>
-        </HeaderWrapper>
         <BodyWrapper>
           <Counter
             onAdd={this.props.onAdd}
@@ -32,15 +29,8 @@ const AppWrapper = styled.div`
   padding: 0;
 `
 
-const HeaderWrapper = styled.div`
-  text-align: center;
-`
-
 const BodyWrapper = styled.div`
   text-align: center;
-`
-const CounterValue = styled.h2`
-  font-size: 64px;
 `
 
 const mapStateToProps = state => {
