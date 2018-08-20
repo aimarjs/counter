@@ -13,18 +13,9 @@ const reducer = (state = initialState, action) => {
       };
 
     case actionTypes.DEC_COUNTER:
-
-      let newValue;
-
-      if (state.value !== 0) {
-        newValue = state.value - 1;
-      } else {
-        newValue = 0;
-      }
-
       return {
         ...state,
-        value: newValue,
+        value: state.value !== 0 ? state.value - 1 : 0,
       };
 
     case actionTypes.RESET_COUNTER:

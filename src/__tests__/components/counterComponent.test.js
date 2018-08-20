@@ -1,5 +1,5 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+// import toJson from 'enzyme-to-json';
 
 import Counter from '../../components/counter';
 

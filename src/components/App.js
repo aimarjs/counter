@@ -1,26 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import * as actions from '../store/actions';
 
 import Counter from './Counter';
 
-class App extends Component {
-  render() {
-    return (
-      <AppWrapper>
-        <BodyWrapper>
-          <Counter
-            onAdd={this.props.onAdd}
-            onRemove={this.props.onRemove}
-            onReset={this.props.onReset}
-            value={this.props.counter.value}
-          />
-        </BodyWrapper>
-      </AppWrapper>
-    );
-  }
-}
+const App = ({
+  onAdd, onRemove, onReset, counter,
+}) => (
+  <AppWrapper>
+    <BodyWrapper>
+      <Counter
+        onAdd={onAdd}
+        onRemove={onRemove}
+        onReset={onReset}
+        value={counter.value}
+      />
+    </BodyWrapper>
+  </AppWrapper>
+);
 
 const AppWrapper = styled.div`
   width: 100vw;
@@ -42,5 +41,14 @@ const mapDispatchToProps = dispatch => ({
   onRemove: () => dispatch(actions.removeHandler()),
   onReset: () => dispatch(actions.resetHandler()),
 });
+
+App.propTypes = {
+  onAdd: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
+  onReset: PropTypes.func.isRequired,
+  counter: PropTypes.shape({
+    value: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
