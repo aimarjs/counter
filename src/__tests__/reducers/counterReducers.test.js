@@ -36,16 +36,12 @@ describe('Counter Reducer', () => {
     });
   });
 
-  // describe('DEC_COUNTER', () => {
-  //
-  //   it('returns the correct state', () => {
-  //
-  //     const action = { type: actionTypes.RESET_COUNTER }
-  //     const expectedState = { value: 0 }
-  //
-  //     expect(selectReducer(undefined, action)).toEqual(expectedState)
-  //
-  //   })
-  //
-  // })
+  describe('RESET_COUNTER', () => {
+    it('returns the initialState', () => {
+      const action = { type: actionTypes.RESET_COUNTER };
+      const expectedState = { value: 0 };
+
+      expect(selectReducer(undefined, action)).toEqual(expectedState);
+    });
+  });
 });

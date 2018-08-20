@@ -26,8 +26,12 @@ const Controls = styled.div`
   max-width: 300px;
 `;
 
+Counter.defaultProps = {
+  value: 0,
+};
+
 Counter.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
   onAdd: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onReset: PropTypes.func.isRequired,

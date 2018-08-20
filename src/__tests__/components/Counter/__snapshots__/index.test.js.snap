@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter Component capturing snapshot of Counter 1`] = `
+<div
+  className="sc-htpNat AzUzt"
+>
+  <h2
+    className="sc-bwzfXH kMlfnI"
+  >
+    0
+  </h2>
+  <div
+    className="sc-bxivhb hvkEvt"
+  >
+    <button
+      className="sc-bdVaJa bDsUlA"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Add
+    </button>
+    <button
+      className="sc-bdVaJa bDsUlA"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Reset
+    </button>
+    <button
+      className="sc-bdVaJa bDsUlA"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Remove
+    </button>
+  </div>
+</div>
+`;

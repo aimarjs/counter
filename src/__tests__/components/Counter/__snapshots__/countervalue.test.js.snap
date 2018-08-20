@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CounterValue Component capturing snapshot of CounterValue 1`] = `
+<h2
+  className="sc-bdVaJa jKoFUU"
+>
+  0
+</h2>
+`;
