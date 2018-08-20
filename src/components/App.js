@@ -3,21 +3,22 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import * as actions from '../store/actions'
 
-import Button from './Button'
+import Counter from './Counter';
 
 class App extends Component {
   render() {
     return (
       <AppWrapper>
         <HeaderWrapper>
-          <Counter>{this.props.counter.value}</Counter>
+          <CounterValue>{this.props.counter.value}</CounterValue>
         </HeaderWrapper>
         <BodyWrapper>
-          <Controls>
-            <Button title="Add" clickHandler={this.props.onAdd} />
-            <Button title="Reset" clickHandler={this.props.onReset} />
-            <Button title="Remove" clickHandler={this.props.onRemove} />
-          </Controls>
+          <Counter
+            onAdd={this.props.onAdd}
+            onRemove={this.props.onRemove}
+            onReset={this.props.onReset}
+            value={this.props.counter.value}
+          />
         </BodyWrapper>
       </AppWrapper>
     );
@@ -38,13 +39,7 @@ const HeaderWrapper = styled.div`
 const BodyWrapper = styled.div`
   text-align: center;
 `
-
-const Controls = styled.div`
-  margin: 0 auto;
-  max-width: 300px;
-`
-
-const Counter = styled.h2`
+const CounterValue = styled.h2`
   font-size: 64px;
 `
 
