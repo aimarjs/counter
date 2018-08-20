@@ -3,16 +3,19 @@ import toJson from 'enzyme-to-json';
 
 import Counter from '../../components/counter'
 
-describe('<Counter />', () => {
-  describe('render()', () => {
+describe('Counter > Shallow render the component', () => {
+  let wrapper
+  const value = 10
 
-    it('renders the component', () => {
+  beforeEach(() => {
+    wrapper = shallow(<Counter value={value} />)
+  })
 
-      const wrapper = shallow(<Counter />);
-      const component = wrapper.dive();
+  it('renders the dumb component', () => {
+    expect(wrapper.length).toEqual(1)
+  })
 
-      expect(toJson(component)).toMatchSnapshot();
-
-    })
+  it('contains correct value', () => {
+    // expect(wrapper.)
   })
 })

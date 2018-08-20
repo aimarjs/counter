@@ -5,20 +5,19 @@ import { Provider } from 'react-redux';
 import App from '../components/App';
 import store from '../store/storeConfigure';
 
-describe('<App>', () => {
+describe('App', () => {
 
-  it('renders the page', () => {
+  it('capturing snapshot of App', () => {
     const wrapper = shallow(
       <Provider store={store}><App /></Provider>
     )
     expect(wrapper).toMatchSnapshot();
   })
 
-  it('renders without crashing', () => {
+  it('renders without crash', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Provider store={store}><App /></Provider>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
-
 
 })
