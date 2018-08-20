@@ -1,8 +1,14 @@
+import shortId from 'shortid';
 import * as actionTypes from './actionTypes';
 
-export const addNewValue = data => ({
-  type: actionTypes.ADD_NEW_VALUE,
+export const addNewEntry = data => ({
+  type: actionTypes.ADD_NEW_ENTRY,
   payload: data,
+  id: shortId.generate(),
+});
+
+export const getAllEntries = () => ({
+  type: actionTypes.GET_ALL_ENTRIES,
 });
 
 export const addHandler = () => ({

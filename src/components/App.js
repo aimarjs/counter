@@ -1,28 +1,45 @@
-import React from 'react';
-// import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-// import * as actions from '../store/actions';
+import * as actions from '../store/actions';
 
 // import Counter from './Counter';
 import Input from './Input';
+import EntryList from './EntryList'
 
-const App = ({
-  addNew,
-  // onAdd, onRemove, onReset, counter,
-}) => (
-  <AppWrapper>
-    <BodyWrapper>
-      <Input addNew={addNew} />
-      {/* <Counter
-        onAdd={onAdd}
-        onRemove={onRemove}
-        onReset={onReset}
-        value={counter.value}
-      /> */}
-    </BodyWrapper>
-  </AppWrapper>
-);
+// const App = ({
+//   addNew,
+//   list,
+//   // onAdd, onRemove, onReset, counter,
+// }) => (
+
+// );
+
+class App extends Component {
+  componentDidMount() {
+    const { getList } = this.props;
+    getList();
+  }
+
+  render() {
+    const { list } = this.props;
+    return (
+      <AppWrapper>
+        <BodyWrapper>
+          <Input />
+          <EntryList list={list} />
+          {/* <Counter
+            onAdd={onAdd}
+            onRemove={onRemove}
+            onReset={onReset}
+            value={counter.value}
+          /> */}
+        </BodyWrapper>
+      </AppWrapper>
+    );
+  }
+}
 
 const AppWrapper = styled.div`
   width: 100vw;
@@ -36,17 +53,22 @@ const BodyWrapper = styled.div`
 `;
 
 const mapStateToProps = state => ({
-  counter: state.counter,
+  list: state.counter.entries,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   addNew: data => dispatch(actions.addNewValue(data)),
-//   // onAdd: () => dispatch(actions.addHandler()),
-//   // onRemove: () => dispatch(actions.removeHandler()),
-//   // onReset: () => dispatch(actions.resetHandler()),
-// });
+const mapDispatchToProps = dispatch => ({
+  getList: () => dispatch(actions.getAllEntries()),
+  // onAdd: () => dispatch(actions.addHandler()),
+  // onRemove: () => dispatch(actions.removeHandler()),
+  // onReset: () => dispatch(actions.resetHandler()),
+});
+
+App.defaultProps = {
+  getList: () => {},
+};
 
 App.propTypes = {
+  getList: PropTypes.func,
   // addNew: PropTypes.func.isRequired,
   // onAdd: PropTypes.func.isRequired,
   // onRemove: PropTypes.func.isRequired,
@@ -56,4 +78,4 @@ App.propTypes = {
   // }).isRequired,
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -39,7 +39,7 @@ class Input extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addNew: data => dispatch(actions.addNewValue(data)),
+  addNew: data => dispatch(actions.addNewEntry(data)),
 });
 
 Input.propTypes = {
