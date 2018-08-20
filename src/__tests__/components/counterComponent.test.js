@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import Counter from '../../components/counter'
@@ -15,6 +14,5 @@ describe('<Counter />', () => {
       expect(toJson(component)).toMatchSnapshot();
 
     })
-
   })
 })
