@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import * as actions from '../store/actions'
+import * as actions from '../store/actions';
 
 import Counter from './Counter';
 
@@ -27,24 +27,20 @@ const AppWrapper = styled.div`
   height: 100vh;
   margin: 0;
   padding: 0;
-`
+`;
 
 const BodyWrapper = styled.div`
   text-align: center;
-`
+`;
 
-const mapStateToProps = state => {
-  return {
-    counter: state.counter
-  };
-};
+const mapStateToProps = state => ({
+  counter: state.counter,
+});
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onAdd: () => dispatch(actions.addHandler()),
-        onRemove: () => dispatch(actions.removeHandler()),
-        onReset: () => dispatch(actions.resetHandler())
-    }
-}
+const mapDispatchToProps = dispatch => ({
+  onAdd: () => dispatch(actions.addHandler()),
+  onRemove: () => dispatch(actions.removeHandler()),
+  onReset: () => dispatch(actions.resetHandler()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
