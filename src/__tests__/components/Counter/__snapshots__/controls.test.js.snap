@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Controls Component capturing snapshot of Controls 1`] = `
+<div
+  className="sc-bwzfXH fSAIos"
+>
+  <button
+    className="sc-bdVaJa bDsUlA"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Add
+  </button>
+  <button
+    className="sc-bdVaJa bDsUlA"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    Reset
+  </button>
+  <button
+    className="sc-bdVaJa bDsUlA"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    Remove
+  </button>
+</div>
+`;
