@@ -1,22 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import * as actions from '../store/actions';
+// import * as actions from '../store/actions';
 
-import Counter from './Counter';
+// import Counter from './Counter';
+import Input from './Input';
 
 const App = ({
-  onAdd, onRemove, onReset, counter,
+  addNew,
+  // onAdd, onRemove, onReset, counter,
 }) => (
   <AppWrapper>
     <BodyWrapper>
-      <Counter
+      <Input addNew={addNew} />
+      {/* <Counter
         onAdd={onAdd}
         onRemove={onRemove}
         onReset={onReset}
         value={counter.value}
-      />
+      /> */}
     </BodyWrapper>
   </AppWrapper>
 );
@@ -36,19 +39,21 @@ const mapStateToProps = state => ({
   counter: state.counter,
 });
 
-const mapDispatchToProps = dispatch => ({
-  onAdd: () => dispatch(actions.addHandler()),
-  onRemove: () => dispatch(actions.removeHandler()),
-  onReset: () => dispatch(actions.resetHandler()),
-});
+// const mapDispatchToProps = dispatch => ({
+//   addNew: data => dispatch(actions.addNewValue(data)),
+//   // onAdd: () => dispatch(actions.addHandler()),
+//   // onRemove: () => dispatch(actions.removeHandler()),
+//   // onReset: () => dispatch(actions.resetHandler()),
+// });
 
 App.propTypes = {
-  onAdd: PropTypes.func.isRequired,
-  onRemove: PropTypes.func.isRequired,
-  onReset: PropTypes.func.isRequired,
-  counter: PropTypes.shape({
-    value: PropTypes.number.isRequired,
-  }).isRequired,
+  // addNew: PropTypes.func.isRequired,
+  // onAdd: PropTypes.func.isRequired,
+  // onRemove: PropTypes.func.isRequired,
+  // onReset: PropTypes.func.isRequired,
+  // counter: PropTypes.shape({
+  //   value: PropTypes.number.isRequired,
+  // }).isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

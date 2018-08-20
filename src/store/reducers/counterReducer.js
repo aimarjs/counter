@@ -1,11 +1,21 @@
 import * as actionTypes from '../actions/actionTypes';
 
+// const initialState = {
+//   value: 0,
+//   quantity: 1,
+// };
+
 const initialState = {
-  value: 0,
+  entries: [],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.ADD_NEW_VALUE:
+      return {
+        ...state,
+        entries: [...state.entries, action.payload],
+      };
     case actionTypes.INC_COUNTER:
       return {
         ...state,
@@ -15,7 +25,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.DEC_COUNTER:
       return {
         ...state,
-        value: state.value !== 0 ? state.value - 1 : 0,
+        quantity: state.value !== 1 ? state.value - 1 : 1,
       };
 
     case actionTypes.RESET_COUNTER:

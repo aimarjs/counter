@@ -7,7 +7,7 @@ exports[`Counter Component capturing snapshot of Counter 1`] = `
   <h2
     className="sc-bwzfXH kMlfnI"
   >
-    0
+    12
   </h2>
   <div
     className="sc-bxivhb hvkEvt"
@@ -22,7 +22,7 @@ exports[`Counter Component capturing snapshot of Counter 1`] = `
     </button>
     <button
       className="sc-bdVaJa bDsUlA"
-      disabled={true}
+      disabled={false}
       onClick={[Function]}
       type="button"
     >
@@ -30,7 +30,7 @@ exports[`Counter Component capturing snapshot of Counter 1`] = `
     </button>
     <button
       className="sc-bdVaJa bDsUlA"
-      disabled={true}
+      disabled={false}
       onClick={[Function]}
       type="button"
     >

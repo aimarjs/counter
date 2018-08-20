@@ -8,11 +8,11 @@ const Counter = ({
   value, onAdd, onReset, onRemove,
 }) => (
   <Wrapper>
-    <CounterValue value={value} />
+    <CounterValue id="value" value={value} />
     <Controls>
-      <Button title="Add" clickHandler={onAdd} />
-      <Button title="Reset" clickHandler={onReset} disable={value === 0} />
-      <Button title="Remove" clickHandler={onRemove} disable={value === 0} />
+      <Button title="+" id="add" clickHandler={onAdd} />
+      <Button title="Reset" id="remove" clickHandler={onReset} disable={value === 0} />
+      <Button title="-" id="reset" clickHandler={onRemove} disable={value === 0} />
     </Controls>
   </Wrapper>
 );

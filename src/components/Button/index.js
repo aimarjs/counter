@@ -8,9 +8,9 @@ const Button = ({ disable, title, clickHandler }) => (
 
 
 const StyledButton = styled.button`
-  padding: 16px;
-  margin: 8px;
-  width: 75px;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: 500;
 `;
 
 Button.defaultProps = {
