@@ -11,16 +11,16 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.ADD_NEW_ENTRY:
-      return {
-        ...state,
-        entries: [...state.entries, { id: action.id, value: action.payload.value }],
-      };
-    case actionTypes.GET_ALL_ENTRIES:
-      return {
-        ...state,
-        entries: [...state.entries],
-      };
+    // case actionTypes.ADD_NEW_ENTRY:
+    //   return {
+    //     ...state,
+    //     entries: [...state.entries, { id: action.id, value: action.payload.value }],
+    //   };
+    // case actionTypes.GET_ALL_ENTRIES:
+    //   return {
+    //     ...state,
+    //     entries: [...state.entries],
+    //   };
     case actionTypes.INC_COUNTER:
       return {
         ...state,

@@ -53,7 +53,7 @@ const BodyWrapper = styled.div`
 `;
 
 const mapStateToProps = state => ({
-  list: state.counter.entries,
+  list: state.cards.entries,
 });
 
 const mapDispatchToProps = dispatch => ({

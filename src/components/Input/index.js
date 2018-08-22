@@ -25,13 +25,26 @@ class Input extends Component {
     this.setState(initialState);
   };
 
-  render() {
+  addHandler = () => {
     const { addNew } = this.props;
+    const { value } = this.state;
+
+    const newItem = {
+      value,
+      added: new Date(),
+    };
+
+    addNew(newItem);
+
+    this.setState(initialState);
+  }
+
+  render() {
     const { value } = this.state;
     return (
       <InputGroup>
         <InputField type="text" onChange={this.inputChangeHandler} value={value} />
-        <Button title="Add" clickHandler={() => addNew(this.state)} />
+        <Button title="Add" clickHandler={this.addHandler} />
         <Button title="Reset" clickHandler={this.resetHandler} />
       </InputGroup>
     );

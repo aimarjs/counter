@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash": "^4.17.10",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
@@ -20,7 +21,8 @@
     "test": "react-scripts test --env=jsdom --verbose --watch",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "lintfix": "eslint . --fix"
+    "lintfix": "eslint . --fix",
+    "test:security": "nsp check --preprocessor yarn"
   },
   "jest": {
     "snapshotSerializers": [
@@ -37,6 +39,9 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
+    "nsp": "^3.2.1",
+    "nsp-preprocessor-yarn": "^1.1.2",
+    "nsp-reporter-teamcity": "^0.3.1",
     "react-test-renderer": "^16.4.2",
     "redux-mock-store": "^1.5.3"
   }
